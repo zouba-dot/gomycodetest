@@ -1,0 +1,8 @@
+.user-photos {
+    width: 80%; 
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex ;
+    justify-content: space-between;
+}

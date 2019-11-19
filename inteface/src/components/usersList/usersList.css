@@ -1,0 +1,9 @@
+.users-header {
+    width: 85%;
+    padding-top: 50px ;
+    margin: auto; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
