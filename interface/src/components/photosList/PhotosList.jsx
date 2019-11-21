@@ -24,7 +24,6 @@ class PhotosList extends Component {
     }
 
     render() {
-        
         const {userPhotos} = this.state ;
         const photos = userPhotos.map(p => {
             return(

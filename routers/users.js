@@ -1,11 +1,8 @@
 const express = require('express') ;
 const mongoose = require('mongoose') ;
-
-const router = express.Router() ;
-
-
 const User = require('../models/UserModel') ;
 
+const router = express.Router() ;
 
 router.get('/',(req,res) => {
     User.find()
@@ -25,7 +22,16 @@ router.post('/add' ,(req,res) => {
 
 router.delete('/:id',(req,res) => {
     User.findById(req.params.id)
-    .then(item => item.remove().then(res.json(User)))
+    .then(item => item.remove().then(res.json({sucess : true})))
+})
+
+router.post('/:id' ,(req,res) => {
+    User.updateOne({_id : req.params.id} , {
+        name : req.body.name ,
+        surname : req.body.surname ,
+        birthYear : req.body.birthyear ,
+        birthPlace : req.body.birthplace
+    }).then(res.json({success : 'true'}))
 })
 
 module.exports = router ;

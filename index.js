@@ -1,15 +1,21 @@
 const express = require('express') ;
 const mongoose = require('mongoose') ;
-const bodyParser = require('body-parser') ;
+
 const usersRouter = require('./routers/users') ;
 const photoRouter = require('./routers/photos') ;
 
+const bodyParser = require('body-parser') ;
 const app = express() ;
+
 
 app.use(bodyParser.urlencoded({extended : false})) 
 app.use(bodyParser.json())
+
 app.use('/users',usersRouter) ;
 app.use('/photos',photoRouter) ;
+
+
+
 
 
 const URI = 'mongodb+srv://admin:12345@cluster0-twrtz.mongodb.net/test'

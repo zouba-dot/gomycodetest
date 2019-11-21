@@ -5,7 +5,6 @@ const mongoose = require('mongoose') ;
 const  Photo = require('../models/PhotosModel')
 const User = require('../models/UserModel') ;
 
-
 router.get('/' ,(req,res) => {
     Photo.findOne({user : req.user.id})
     .then(photo => {
@@ -18,7 +17,7 @@ router.get('/' ,(req,res) => {
 })
 
 router.post('/addphoto' ,(req,res) => {
-    Photo.findOne({id : req.user.id})
+    Photo.findOne({user : req.user.id})
     .then(pic => {
         const newPhoto = {
             title : req.body.title ,
@@ -40,6 +39,5 @@ router.delete('/:title',(req,res) => {
       })
       .catch(err => res.status(404).json(err));
 })
-
 
 module.exports = router ;

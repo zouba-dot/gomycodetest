@@ -1,5 +1,5 @@
 import React,{Component} from 'react' ;
-import './adduser.css'
+import './addUser.css' ;
 import axios from 'axios' ;
 import {Link} from 'react-router-dom' ;
 
@@ -24,13 +24,14 @@ class AddUser extends Component {
             birthyear : this.state.birthyear ,
             birthplace : this.state.birthplace
         }
-        axios.post('http://localhost:5000/users/Add',newUser)
+        axios.post('/users/Add',newUser)
         .then(this.setState({
             name : '' ,
             surname : '' ,
             birthyear : '' , 
             birthplace : '' 
         })).catch(err => console.log(err))
+        window.location.href = '/'
     }
 
     render() {

@@ -16,14 +16,14 @@ class UsersList extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/users')
+        axios.get('/users')
         .then(res => this.setState({
             usersList : res.data
         }))
     }
 
     deleteitem = (id) => {
-        axios.delete(`http://localhost:5000/users/${id}`)
+        axios.delete(`/users/${id}`)
         const list = this.state.usersList.filter(item => {
             return item._id !== id
         })
@@ -69,9 +69,9 @@ class UsersList extends Component {
                     placeholder="Search users..." 
                     value={this.state.search} 
                     onChange={this.onChange} />
-                    <i class="users icon"></i>
+                    <i className="users icon"></i>
                     </div>
-                    <Link to='/addUser'><i class="plus square outline icon"></i></Link>
+                    <Link to='/addUser'><i className="plus square outline icon"></i></Link>
                     </div>
                 </div>
                 <div className="users-table">
